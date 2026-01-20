@@ -59,7 +59,7 @@ export function useSidebarItems(): SidebarItem[] {
 
     if (canAccessRoute(componentsRoutes?.root?.name as string)) {
       items.push({
-        title: componentsRoutes?.root?.label as string,
+        title: t('navigation.links.components.root'),
         path: componentsRoutes?.root?.path as string,
       });
     }
@@ -87,23 +87,22 @@ export function useSidebarItems(): SidebarItem[] {
         )
       ) {
         items.push({
-          title: panelRoutes?.root?.label as string,
+          title: t('navigation.links.panel.root'),
           group: [
             {
-              title: panelRoutes?.root?.label as string,
+              title: t('navigation.links.panel.root'),
               end: true,
               path: panelRoutes?.root?.path as string,
             },
             {
-              title: (panelRoutes?.invoices as RouteGroup)?.all
-                ?.label as string,
+              title: t('navigation.links.panel.invoices.all'),
               path: (panelRoutes?.invoices as RouteGroup)?.all?.path as string,
             },
           ],
         });
       } else {
         items.push({
-          title: panelRoutes?.root?.label as string,
+          title: t('navigation.links.panel.root'),
           path: panelRoutes?.root?.path as string,
         });
       }
@@ -111,7 +110,7 @@ export function useSidebarItems(): SidebarItem[] {
 
     if (canAccessRoute(baseRoutes?.chat?.name as string)) {
       items.push({
-        title: baseRoutes?.chat?.label as string,
+        title: t('navigation.links.chat.root'),
         path: baseRoutes?.chat?.path as string,
       });
     }
