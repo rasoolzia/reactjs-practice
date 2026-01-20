@@ -23,6 +23,28 @@
         "root": "Auth",
         "login": "Login",
         "register": "Register"
+      },
+      "components": {
+        "root": "Components",
+        "input": "Input",
+        "button": "Button",
+        "table": "Table",
+        "toggle": "Toggle",
+        "dropdown": "Dropdown",
+        "expansionPanel": "Expansion Panel"
+      },
+      "panel": {
+        "root": "Panel",
+        "invoices": {
+          "all": "Invoices",
+          "get": "Get Invoice",
+          "add": "Add Invoice",
+          "delete": "Delete Invoice",
+          "edit": "Edit Invoice"
+        }
+      },
+      "chat": {
+        "root": "Chat"
       }
     }
   }
