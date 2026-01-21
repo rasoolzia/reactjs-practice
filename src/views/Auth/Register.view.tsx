@@ -50,11 +50,11 @@ function RegisterView() {
     <div className="flex h-full w-full items-center justify-center p-4">
       <div className="w-full max-w-md space-y-8">
         <div className="rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-neutral-900 p-8 shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden">
-          <div className="text-center">
-            <h2 className="text-3xl font-extrabold text-gray-900 dark:text-gray-100">
+          <div className="flex flex-col items-center gap-4">
+            <h2 className="text-2xl text-gray-900 dark:text-gray-100">
               {t('register.title')}
             </h2>
-            <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">
+            <p className="text-sm text-gray-600 dark:text-gray-400">
               {t('register.subtitle')}
             </p>
           </div>
@@ -122,7 +122,7 @@ function RegisterView() {
             </div>
 
             <div className="flex flex-col">
-              <div className="flex items-center">
+              <div className="flex items-center gap-2">
                 <Controller
                   name="terms"
                   control={control}
@@ -142,7 +142,7 @@ function RegisterView() {
                 />
                 <label
                   htmlFor="terms"
-                  className="ml-2 block text-sm text-gray-700 dark:text-gray-300"
+                  className="block text-sm text-gray-700 dark:text-gray-300"
                 >
                   {t('register.termsPrefix')}{' '}
                   {/*TODO add right to left modal later*/}

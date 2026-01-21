@@ -1,6 +1,8 @@
 import { SvgLoader } from '@/components/svg-loader.component';
+import { LANGUAGES } from '@/constants';
 import { CustomInputProps } from '@/types';
 import { FocusEvent, memo, useId, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 const DEFAULT_ERROR_TEXT = 'This field is required';
 const baseInputClasses =
@@ -32,11 +34,13 @@ export const CustomInput = memo(
     onFocus,
     onBlur,
   }: CustomInputProps) => {
+    const { i18n } = useTranslation();
     const randomId = useId();
     const inputId = id || randomId;
     const errorId = `${inputId}-error`;
     const [isFocused, setIsFocused] = useState(false);
 
+    const language = i18n.resolvedLanguage || i18n.language || LANGUAGES.en;
     const showLabel = label && inputStyle !== 'floatingLabel';
     const ariaLabel = !showLabel ? label || placeholder : undefined;
 
@@ -106,11 +110,11 @@ export const CustomInput = memo(
           {inputStyle === 'floatingLabel' && (label || placeholder) && (
             <label
               htmlFor={inputId}
-              className={`absolute left-2 top-4 px-1.5 text-sm duration-200 pointer-events-none origin-top-left text-gray-700 dark:text-gray-300 ${
+              className={`absolute px-1.5 text-sm duration-200 pointer-events-none text-gray-700 dark:text-gray-300 ${
                 isFocused || value || placeholder
                   ? 'scale-75 -translate-y-3'
                   : ''
-              } ${icon ? 'left-10' : ''}`}
+              } ${language === LANGUAGES.en ? 'origin-top-left left-2' : 'origin-top-right right-2'} top-4 ${icon ? 'left-10' : ''}`}
             >
               {label || placeholder}
             </label>

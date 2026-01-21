@@ -17,8 +17,8 @@ const AVAILABLE_LANGS = [
 export function LanguageSwitcher() {
   const { i18n, t } = useTranslation('common');
 
-  const value = i18n.resolvedLanguage || i18n.language || LANGUAGES.en;
-  const isLanguageEn = value === LANGUAGES.en;
+  const language = i18n.resolvedLanguage || i18n.language || LANGUAGES.en;
+  const isLanguageEn = language === LANGUAGES.en;
   const options = useMemo(() => AVAILABLE_LANGS, []);
 
   const handleChange = (lng: string) => {
@@ -30,7 +30,7 @@ export function LanguageSwitcher() {
       className="w-full"
       trigger={
         <div className="hover:bg-neutral-200 dark:hover:bg-neutral-700 flex justify-between align-middle p-3 rounded-xl cursor-pointer">
-          {t('navigation.language')}: {value.toUpperCase()}
+          {t('navigation.language')}: {language.toUpperCase()}
         </div>
       }
       ListClassName="w-full"
@@ -40,7 +40,7 @@ export function LanguageSwitcher() {
         <DropdownItem
           key={option.code}
           onClick={() => handleChange(option.code)}
-          className={`${isLanguageEn ? 'text-left' : 'text-right'} ${value === option.code ? 'bg-neutral-200 dark:bg-neutral-700' : ''}`}
+          className={`${isLanguageEn ? 'text-left' : 'text-right'} ${language === option.code ? 'bg-neutral-200 dark:bg-neutral-700' : ''}`}
         >
           {t(option.labelKey)}
         </DropdownItem>
