@@ -1,0 +1,22 @@
+{
+  "title": "About This Application",
+  "description": "This application is a modern web platform built with React and Vite, designed to showcase the latest features and best practices in web development. It serves as a practical example of how to build a scalable and maintainable frontend application.",
+  "mission": {
+    "title": "Our Mission",
+    "description": "Our mission is to provide a comprehensive and interactive learning experience for developers. We aim to deliver a clear and concise demonstration of React concepts, state management, routing, and more."
+  },
+  "features": {
+    "title": "Key Features",
+    "list": {
+      "architecture": "Component-based architecture",
+      "routing": "Client-side routing with React Router",
+      "stateManagement": "State management with Zustand",
+      "theme": "Dark/Light theme support",
+      "responsive": "Responsive design with Tailwind CSS"
+    }
+  },
+  "team": {
+    "title": "Meet the Team",
+    "description": "This project is brought to you by a team of passionate developers dedicated to creating high-quality software and sharing knowledge with the community."
+  }
+}
