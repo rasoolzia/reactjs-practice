@@ -1,0 +1,51 @@
+{
+  "title": "React Router Best Practices Demo",
+  "navigation": {
+    "title": "Route Navigation",
+    "goHome": "Go to Home",
+    "goAbout": "Go to About",
+    "guest": "Guest",
+    "user": "User",
+    "admin": "Admin"
+  },
+  "auth": {
+    "title": "Authentication Status",
+    "status": "Status",
+    "authenticated": "Authenticated",
+    "notAuthenticated": "Not Authenticated",
+    "user": "User",
+    "email": "Email",
+    "role": "Role",
+    "login": "Login",
+    "logout": "Logout",
+    "loginTestUser": "Login as test user (if server does not response)"
+  },
+  "acl": {
+    "title": "Access Control (ACL)",
+    "description": "Components section requires admin role",
+    "accessAdminRoute": "Access Admin Route",
+    "needAdminRole": "You need admin role to access components"
+  },
+  "routeInfo": {
+    "title": "Current Route Info",
+    "home": "Home",
+    "about": "About",
+    "login": "Login",
+    "register": "Register"
+  },
+  "features": {
+    "title": "Implemented Features",
+    "list": {
+      "routeNames": "Route names and meta tags (like Vue Router)",
+      "acl": "Role-based access control (ACL)",
+      "authGuards": "Authentication guards",
+      "routeBuilder": "Route builder pattern",
+      "typeSafe": "Type-safe route definitions",
+      "programmaticNav": "Programmatic navigation with route names",
+      "breadcrumb": "Breadcrumb navigation",
+      "dynamicSidebar": "Dynamic sidebar based on user role",
+      "routeProtection": "Route protection components",
+      "documentTitle": "Document title updates"
+    }
+  }
+}

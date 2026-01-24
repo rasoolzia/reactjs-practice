@@ -1,0 +1,51 @@
+{
+  "title": "نمایش بهترین شیوه های React Router",
+  "navigation": {
+    "title": "مسیریابی",
+    "goHome": "برو به خانه",
+    "goAbout": "برو به درباره ما",
+    "guest": "مهمان",
+    "user": "کاربر",
+    "admin": "ادمین"
+  },
+  "auth": {
+    "title": "وضعیت احراز هویت",
+    "status": "وضعیت",
+    "authenticated": "احراز هویت شده",
+    "notAuthenticated": "احراز هویت نشده",
+    "user": "کاربر",
+    "email": "ایمیل",
+    "role": "نقش",
+    "login": "ورود",
+    "logout": "خروج",
+    "loginTestUser": "ورود به عنوان کاربر تست (اگر سرور پاسخ نمیدهد)"
+  },
+  "acl": {
+    "title": "کنترل دسترسی (ACL)",
+    "description": "بخش کامپوننتها نیاز به نقش ادمین دارد",
+    "accessAdminRoute": "دسترسی به مسیر ادمین",
+    "needAdminRole": "برای دسترسی به کامپوننتها نیاز به نقش ادمین دارید"
+  },
+  "routeInfo": {
+    "title": "اطلاعات مسیر فعلی",
+    "home": "خانه",
+    "about": "درباره ما",
+    "login": "ورود",
+    "register": "ثبت نام"
+  },
+  "features": {
+    "title": "ویژگیهای پیادهسازی شده",
+    "list": {
+      "routeNames": "نامها و متا تگهای مسیر (مانند Vue Router)",
+      "acl": "کنترل دسترسی مبتنی بر نقش (ACL)",
+      "authGuards": "محافظهای احراز هویت",
+      "routeBuilder": "الگوی سازنده مسیر",
+      "typeSafe": "تعاریف مسیر با امنیت نوع",
+      "programmaticNav": "مسیریابی برنامه نویسی با نامهای مسیر",
+      "breadcrumb": "مسیریابی breadcrumb",
+      "dynamicSidebar": "سایدبار پویا بر اساس نقش کاربر",
+      "routeProtection": "کامپوننتهای محافظت مسیر",
+      "documentTitle": "بهروزرسانی عنوان سند"
+    }
+  }
+}
