@@ -4,8 +4,10 @@ import { userRoles } from '@/constants';
 import { useRouteNavigation } from '@/hooks';
 import { useAuthStore } from '@/stores';
 import { User, UserRole } from '@/types';
+import { useTranslation } from 'react-i18next';
 
 export default function DemoView() {
+  const { t } = useTranslation('demo');
   const { navigateTo, isCurrentRoute } = useRouteNavigation();
   const user = useAuthStore((s) => s.user);
   const isAuthenticated = useAuthStore((s) => s.isAuthenticated);
@@ -40,20 +42,18 @@ export default function DemoView() {
   return (
     <>
       <h1 className="text-3xl font-bold mb-8">
-        React Router Best Practices Demo
+        {t('title')}
       </h1>
 
-      {/* 2-column grid for main sections */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {/* Route Navigation Demo */}
         <section className="p-6 rounded-2xl bg-bg-secondary shadow-md space-y-4">
-          <h2 className="text-xl font-semibold">Route Navigation</h2>
+          <h2 className="text-xl font-semibold">{t('navigation.title')}</h2>
           <div className="space-y-3">
             <CustomButton onClick={() => navigateTo('home')}>
-              Go to Home
+              {t('navigation.goHome')}
             </CustomButton>
             <CustomButton onClick={() => navigateTo('about')}>
-              Go to About
+              {t('navigation.goAbout')}
             </CustomButton>
 
             {isAuthenticated && (
@@ -64,7 +64,7 @@ export default function DemoView() {
                   }
                   onClick={() => handleRoleChanges(userRoles.guest)}
                 >
-                  Guest
+                  {t('navigation.guest')}
                 </CustomButton>
                 <CustomButton
                   variant={
@@ -72,7 +72,7 @@ export default function DemoView() {
                   }
                   onClick={() => handleRoleChanges(userRoles.user)}
                 >
-                  User
+                  {t('navigation.user')}
                 </CustomButton>
                 <CustomButton
                   variant={
@@ -80,77 +80,73 @@ export default function DemoView() {
                   }
                   onClick={() => handleRoleChanges(userRoles.admin)}
                 >
-                  Admin
+                  {t('navigation.admin')}
                 </CustomButton>
               </div>
             )}
           </div>
         </section>
 
-        {/* Authentication Demo */}
         <section className="p-6 rounded-2xl bg-bg-secondary shadow-md space-y-4">
-          <h2 className="text-xl font-semibold">Authentication Status</h2>
+          <h2 className="text-xl font-semibold">{t('auth.title')}</h2>
           <p>
-            Status: {isAuthenticated ? 'Authenticated' : 'Not Authenticated'}
+            {t('auth.status')}: {isAuthenticated ? t('auth.authenticated') : t('auth.notAuthenticated')}
           </p>
           {user && (
             <div className="space-y-1">
-              <p>User: {user.username}</p>
-              <p>Email: {user.email}</p>
-              <p>Role: {user.role}</p>
+              <p>{t('auth.user')}: {user.username}</p>
+              <p>{t('auth.email')}: {user.email}</p>
+              <p>{t('auth.role')}: {user.role}</p>
             </div>
           )}
           {!isAuthenticated ? (
-            <CustomButton onClick={handleLogin}>Login</CustomButton>
+            <CustomButton onClick={handleLogin}>{t('auth.login')}</CustomButton>
           ) : (
-            <CustomButton onClick={handleLogout}>Logout</CustomButton>
+            <CustomButton onClick={handleLogout}>{t('auth.logout')}</CustomButton>
           )}
           {!isAuthenticated && (
             <CustomButton variant="secondary" onClick={loginTestUser}>
-              Login as test user (if server does not response)
+              {t('auth.loginTestUser')}
             </CustomButton>
           )}
         </section>
 
-        {/* ACL Demo */}
         <section className="p-6 rounded-2xl bg-bg-secondary shadow-md space-y-4">
-          <h2 className="text-xl font-semibold">Access Control (ACL)</h2>
-          <p>Components section requires admin role</p>
+          <h2 className="text-xl font-semibold">{t('acl.title')}</h2>
+          <p>{t('acl.description')}</p>
           {isAuthenticated && user?.role === userRoles.admin ? (
             <CustomButton onClick={handleAdminRoute}>
-              Access Admin Route
+              {t('acl.accessAdminRoute')}
             </CustomButton>
           ) : (
             <p className="text-red-500 font-medium">
-              You need admin role to access components
+              {t('acl.needAdminRole')}
             </p>
           )}
         </section>
 
-        {/* Route Info */}
         <section className="p-6 rounded-2xl bg-bg-secondary shadow-md space-y-3">
-          <h2 className="text-xl font-semibold">Current Route Info</h2>
-          <p>Home: {isCurrentRoute('home') ? '✓' : '✗'}</p>
-          <p>About: {isCurrentRoute('about') ? '✓' : '✗'}</p>
-          <p>Login: {isCurrentRoute('login') ? '✓' : '✗'}</p>
-          <p>Register: {isCurrentRoute('register') ? '✓' : '✗'}</p>
+          <h2 className="text-xl font-semibold">{t('routeInfo.title')}</h2>
+          <p>{t('routeInfo.home')}: {isCurrentRoute('home') ? '✓' : '✗'}</p>
+          <p>{t('routeInfo.about')}: {isCurrentRoute('about') ? '✓' : '✗'}</p>
+          <p>{t('routeInfo.login')}: {isCurrentRoute('login') ? '✓' : '✗'}</p>
+          <p>{t('routeInfo.register')}: {isCurrentRoute('register') ? '✓' : '✗'}</p>
         </section>
       </div>
 
-      {/* Features List */}
       <section className="mt-8 p-6 rounded-2xl bg-bg-secondary shadow-md">
-        <h2 className="text-xl font-semibold mb-4">Implemented Features</h2>
+        <h2 className="text-xl font-semibold mb-4">{t('features.title')}</h2>
         <ul className="space-y-2 list-disc list-inside">
-          <li>✅ Route names and meta tags (like Vue Router)</li>
-          <li>✅ Role-based access control (ACL)</li>
-          <li>✅ Authentication guards</li>
-          <li>✅ Route builder pattern</li>
-          <li>✅ Type-safe route definitions</li>
-          <li>✅ Programmatic navigation with route names</li>
-          <li>✅ Breadcrumb navigation</li>
-          <li>✅ Dynamic sidebar based on user role</li>
-          <li>✅ Route protection components</li>
-          <li>✅ Document title updates</li>
+          <li>✅ {t('features.list.routeNames')}</li>
+          <li>✅ {t('features.list.acl')}</li>
+          <li>✅ {t('features.list.authGuards')}</li>
+          <li>✅ {t('features.list.routeBuilder')}</li>
+          <li>✅ {t('features.list.typeSafe')}</li>
+          <li>✅ {t('features.list.programmaticNav')}</li>
+          <li>✅ {t('features.list.breadcrumb')}</li>
+          <li>✅ {t('features.list.dynamicSidebar')}</li>
+          <li>✅ {t('features.list.routeProtection')}</li>
+          <li>✅ {t('features.list.documentTitle')}</li>
         </ul>
       </section>
     </>
